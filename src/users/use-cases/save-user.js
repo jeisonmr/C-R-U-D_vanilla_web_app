@@ -6,11 +6,15 @@ export const saveUser = async ( userLike ) =>{
     const user = new User( userLike );
     const userToSave = userModalToLocalhost( user );
 
+    if (!user.firstName || !user.lastName)
+    throw 'Se requere información en los campos!';
+
     if (user.id) {
         return await updateUser( userToSave );
     }
 
     const updatedUser = await createUser( userToSave );
+    console.log(updatedUser)
     return updatedUser;
 
 }
@@ -45,7 +49,7 @@ export const updateUser = async ( user ) =>{
     })
 
     const updatedUser = await res.json();
-    console.log({updatedUser});
+    // console.log({updatedUser});
 
     return updatedUser;
 }

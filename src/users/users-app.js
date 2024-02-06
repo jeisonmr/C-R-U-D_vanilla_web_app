@@ -19,5 +19,5 @@ export const UsersApp = async ( element ) => {
     renderTable();
   });
   
-  console.log(usersStore.getUsers());
+  // console.log(usersStore.getUsers());
 }
