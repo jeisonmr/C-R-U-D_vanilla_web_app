@@ -23,4 +23,3 @@ export const localhostUserToModel = ( localhostUser ) => {
             lastName: last_name,
         });
 }
-

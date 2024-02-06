@@ -1,4 +1,6 @@
 import usersStores from '../../store/users-store';
+import { updateUser } from '../../use-cases/save-user';
+import { showModal } from '../render-modal/render-modal';
 import './render-table.css';
 
 let table;
@@ -22,6 +24,18 @@ const createTable = () =>{
     return table;
 }
 
+const tableSelectListener = ( event ) => {
+
+    // if(event.target.className === 'select_user') console.log(event.target)
+    const element = event.target.closest( '.select_user' );
+    const id = element.getAttribute('data-id');
+    element ? showModal( id ) : ''
+    updateUser( id );
+}
+
+const tableSaveListener = ( user ) => {
+
+}
 
 export const renderTable = ( element ) => {
 
@@ -30,7 +44,9 @@ export const renderTable = ( element ) => {
     if(!table){
         table = createTable();
         element.append(table);
+        table.addEventListener('click', tableSelectListener);
     }
+
 
     let tableHTML = '';
     users.forEach( user => {
@@ -43,9 +59,9 @@ export const renderTable = ( element ) => {
         <td>${user.lastName}</td>
         <td>${user.isActive}</td>
         <td>
-        <a href="#/" data-id="${user.id}">Select</a>
+        <a href="#/" class="select_user" data-id="${user.id}">Select</a>
         |
-        <a href="#/" data-id="${user.id}">Delete</a>
+        <a href="#/" class="deleted_user" data-id="${user.id}">Delete</a>
         </td>
     </tr>
         `;
