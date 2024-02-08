@@ -1,5 +1,10 @@
 export class User{
 
+    /**
+     *
+     * @param {Like<User>} userLike
+     */
+
     constructor({id, isActive, balance, avatar, firstName, lastName, gender}){
         this.id = id;
         this.isActive = isActive;

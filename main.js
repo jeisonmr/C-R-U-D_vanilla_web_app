@@ -7,25 +7,18 @@ import { UsersApp } from './src/users/users-app.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
+    <h1>C-R-U-D</h1>
+    <h5>Create - Read - Update - Delete</h5>
     <div class="card">
       <button id="counter" type="button"></button>
-
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
   </div>
 `
 
-setupCounter(document.querySelector('#counter'))
 
+// Se guarda en la variable (ELEMENT) el elemento html en el cual se renderizara toda la aplicación.
 const element = document.querySelector('.card');
 
+// Ejecución de la función y se manda como argument la variable donde se renderiza la aplicación.
 UsersApp( element );
+
